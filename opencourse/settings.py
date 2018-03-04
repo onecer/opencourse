@@ -153,8 +153,8 @@ STATICFILES_DIRS = [
 
 EMAIL_USE_SSL = True
 # EMAIL_USE_TLS = False
-EMAIL_HOST = 'smtp.exmail.qq.com'
+EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'yinyongyou@ibona.cn'
-EMAIL_HOST_PASSWORD = 'xxxxx'
+EMAIL_HOST_USER = 'supersender@163.com'
+EMAIL_HOST_PASSWORD = 'WVoN0QavSL'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

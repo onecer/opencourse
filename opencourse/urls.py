@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 import xadmin
 
-# from message.views import get_form
 from users.views import LoginView, RegisterView, ActiveView, ForgetPwdView
 
 
@@ -26,10 +25,9 @@ urlpatterns = [
      url(r'^captcha/', include('captcha.urls')),
      url(r'^xadmin/', xadmin.site.urls),
      url(r'^admin/', admin.site.urls),
-#     url(r'^form/$', get_form),
      url(r'^$', TemplateView.as_view(template_name="index.html"), name="index"),
      url(r'^login/$', LoginView.as_view(), name='login'),
-#     url(r'^register/$', RegisterView.as_view(), name='register'),
-#     url(r'^active/(?P<active_code>.*)/$', ActiveView.as_view(), name='active'),
-#     url(r'^forgetpwd/$', ForgetPwdView.as_view(), name='forgetpwd')
+     url(r'^register/$', RegisterView.as_view(), name='register'),
+     url(r'^active/(?P<active_code>.*)/$', ActiveView.as_view(), name='active'),
+     url(r'^forgetpwd/$', ForgetPwdView.as_view(), name='forgetpwd')
 ]
