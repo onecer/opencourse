@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-
+# coding:utf-8
 import os
 import sys
 
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'message',
+    # 'message',
     'users',
     'courses',
     'organization',
@@ -96,7 +96,11 @@ DATABASES = {
         'NAME': 'opencourse',
         'USER': 'opencourse',
         'PASSWORD': 'MP6TCFA7KK',
-        'HOST': '172.25.254.10',
+        'HOST': '127.0.0.1',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8',
+        },
     }
 }
 
@@ -141,3 +145,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+# Email Config Settings
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_SSL = True
+# EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.exmail.qq.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'yinyongyou@ibona.cn'
+EMAIL_HOST_PASSWORD = 'xxxxx'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
