@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 import xadmin
 
-from users.views import LoginView, RegisterView, ActiveView, ForgetPwdView
+from users.views import LoginView, RegisterView, ActiveView, ForgetPwdView, ResetView
 
 
 urlpatterns = [
@@ -29,5 +29,6 @@ urlpatterns = [
      url(r'^login/$', LoginView.as_view(), name='login'),
      url(r'^register/$', RegisterView.as_view(), name='register'),
      url(r'^active/(?P<active_code>.*)/$', ActiveView.as_view(), name='active'),
-     url(r'^forgetpwd/$', ForgetPwdView.as_view(), name='forgetpwd')
+     url(r'^forgetpwd/$', ForgetPwdView.as_view(), name='forgetpwd'),
+     url(r'^reset/(?P<reset_code>.*)/$', ResetView.as_view(), name='reset_pwd'),
 ]

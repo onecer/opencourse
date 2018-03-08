@@ -24,8 +24,13 @@ def send_register_email(email, send_type='register'):
     verify_record.send_type = send_type
     verify_record.save()
     if verify_record:
-        email_message = 'http://127.0.0.1:8000/active/{code}'.format(code=verify_record.verify_code)
-        email_title = u'欢迎注册开源课程网'
         if send_type == 'register':
+            email_message = 'http://127.0.0.1:8000/active/{code}'.format(code=verify_record.verify_code)
+            email_title = u'欢迎注册开源课程网'
             return send_mail(subject=email_title, from_email=EMAIL_HOST_USER, message=email_message,
-                             recipient_list=['ldh@qq.com'])
+                             recipient_list=[email])
+        if send_type == 'forget':
+            email_message = 'http://127.0.0.1:8000/reset/{code}'.format(code=verify_record.verify_code)
+            email_title = u'请点击链接重置密码!'
+            return send_mail(subject=email_title, from_email=EMAIL_HOST_USER, message=email_message,
+                             recipient_list=[email])
